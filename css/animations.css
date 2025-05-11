@@ -1,0 +1,165 @@
+/* Fade-in animation for elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title animation */
+.title-line {
+  display: block;
+  overflow: hidden;
+  animation: fadeIn var(--transition-slow) forwards;
+  opacity: 0;
+}
+
+.title-line:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.title-line:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.title-line:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* Hero elements animation */
+.hero-subtitle {
+  animation: fadeIn var(--transition-slow) 0.7s forwards;
+  opacity: 0;
+}
+
+.hero-cta {
+  animation: fadeIn var(--transition-slow) 0.9s forwards;
+  opacity: 0;
+}
+
+/* Mouse hover effect for skill cards */
+.skill-card:hover .skill-progress {
+  animation: pulseProgress 1.5s infinite;
+}
+
+@keyframes pulseProgress {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Button hover effect */
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Menu toggle animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Animated underline for links */
+@keyframes underlineExpand {
+  from {
+    width: 0;
+    left: 50%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.project-link:hover::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  animation: underlineExpand var(--transition-fast) forwards;
+}
+
+/* Scroll reveal animation - to be applied with JavaScript */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slow zoom on page load */
+@keyframes slowZoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-bg {
+  animation: slowZoom 2s ease-out forwards;
+}
+
+/* Input focus animation */
+.form-control:focus {
+  animation: pulseBorder 1.5s ease-in-out;
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 119, 237, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 119, 237, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 119, 237, 0);
+  }
+}
+
+/* Simple CSS-only menu toggle (no JavaScript required) */
+#menu-toggle:checked ~ .nav {
+  height: calc(100vh - var(--header-height));
+}
+
+/* CSS-only section reveal on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .skills-grid,
+  .projects-grid,
+  .contact-container {
+    --delay: 0.1s;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  
+  .skills:target .skills-grid,
+  .projects:target .projects-grid,
+  .contact:target .contact-container {
+    animation: fadeIn var(--transition-slow) var(--delay) forwards;
+  }
+}

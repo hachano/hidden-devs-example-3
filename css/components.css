@@ -1,0 +1,81 @@
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* Project cards */
+.project-card {
+  margin-bottom: var(--space-16);
+}
+
+.project-image {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.02);
+}
+
+.project-title {
+  margin-bottom: var(--space-2);
+}
+
+.project-description {
+  color: var(--color-text-light);
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.skill-card h3 {
+  margin-bottom: var(--space-4);
+}
+
+.skill-card ul li {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-light);
+}
+
+/* Contact links */
+.contact-links {
+  margin-top: var(--space-8);
+}
+
+.contact-links a {
+  display: block;
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-lg);
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.contact-links a:hover {
+  opacity: 0.8;
+}
